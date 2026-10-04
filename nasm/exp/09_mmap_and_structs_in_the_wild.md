@@ -2,7 +2,7 @@
 
 > **NSD / MAPPING CONTROL** — Request memory, build the objects, release the mapping. Keep the original address somewhere safe. Cleanup gets considerably harder after you lose the fucking pointer.
 
-**Lab:** [mapping example](examples/09_mmap_and_structs_in_the_wild.asm), status `0` on success, `1` on mapping failure, `53` on an internal value mismatch after cleanup.
+**Lab:** [mapping example](../examples/09_mmap_and_structs_in_the_wild.asm), status `0` on success, `1` on mapping failure, `53` on an internal value mismatch after cleanup.
 
 ## Static, stack, and dynamic lifetime
 
@@ -39,7 +39,7 @@ struct node {
 };                      // size 16, alignment 8
 ```
 
-![Two sixteen-byte nodes contain a value, padding, and a next pointer.](diagrams/09_struct_nodes.png)
+![Two sixteen-byte nodes contain a value, padding, and a next pointer.](../diagrams/09_struct_nodes.png)
 
 The NASM example defines `NODE_VALUE equ 0`, `NODE_NEXT equ 8`, and `NODE_SIZE equ 16`. It allocates two nodes in one region, stores 13 and 53, points the first at the second, and terminates the chain with a null pointer.
 
@@ -57,8 +57,8 @@ After munmap, clearing R12 avoids accidentally reusing that particular register 
 
 ---
 
-[Course map](README.md) · [Previous: 08](08_syscalls_and_io_thingy.md) · [Next: 10](10_float_and_simd_fuckery.md)
+[Course map](../README.md) · [Previous: 08](08_syscalls_and_io_thingy.md) · [Next: 10](10_float_and_simd_fuckery.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/09_mmap_and_structs_in_the_wild.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

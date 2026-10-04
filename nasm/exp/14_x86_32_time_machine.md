@@ -2,13 +2,9 @@
 
 > **NSD / LEGACY TARGET** — Old target, different wiring. Check instruction mode, ELF format, and ABI before borrowing code. Recognizing the mnemonics is only the beginning of the inspection.
 
-**Lab:** [i386 example](examples/14_x86_32_time_machine.asm), exit `0` with no output. This target is excluded from the default build.
+**Lab:** [i386 example](../examples/14_x86_32_time_machine.asm), exit `0` with no output. Build this optional target separately from the x86-64 examples.
 
-```sh
-make check32
-```
-
-Equivalent manual commands:
+From `nasm/`:
 
 ```sh
 nasm -f elf32 -g -F dwarf examples/14_x86_32_time_machine.asm -o /tmp/time-machine.o
@@ -33,7 +29,7 @@ No 32-bit libc is required because the program uses a raw syscall. The OS must s
 | Syscall argument registers | RDI RSI RDX R10 R8 R9 | EBX ECX EDX ESI EDI EBP |
 | exit / write numbers | 60 / 1 | 1 / 4 |
 
-![Mode, ELF format, and ABI must agree; changing BITS alone does not change the running process.](diagrams/14_modes.png)
+![Mode, ELF format, and ABI must agree; changing BITS alone does not change the running process.](../diagrams/14_modes.png)
 
 `bits 32` tells NASM how to encode instructions. It does not switch a running 64-bit process into compatibility mode. The executable format and OS loader participate in selecting execution mode. Likewise, `bits 16` doesn't summon firmware, arrange startup, or make a boot sector. Bare metal is where we inherit all that work Linux used to do.
 
@@ -55,8 +51,8 @@ And because the naming wasn't crowded enough, there's x32: 64-bit instruction mo
 
 ---
 
-[Course map](README.md) · [Previous: 13](13_debugging_and_reading_the_nudes.md) · [Next: 15](15_your_input_program_from_bytes_to_number.md)
+[Course map](../README.md) · [Previous: 13](13_debugging_and_reading_the_nudes.md) · [Next: 15](15_your_input_program_from_bytes_to_number.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/14_x86_32_time_machine.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

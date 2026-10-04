@@ -2,7 +2,7 @@
 
 > **NSD / MEMORY ACCESS** — Get the address. Check the width. Then touch the memory. I prefer that order; the other one tends to involve a fault dump.
 
-**Lab:** [memory example](examples/02_memory_and_pointer_hell.asm), exit `0`.
+**Lab:** [memory example](../examples/02_memory_and_pointer_hell.asm), exit `0`.
 
 ## Lay out the storage before touching it
 
@@ -35,7 +35,7 @@ A memory-to-memory ordinary integer `mov [a],[b]` is invalid. Load one operand i
 
 ## Endianness: inspect the bytes
 
-![The dword 0x12345678 occupies bytes 78, 56, 34, 12 at increasing addresses.](diagrams/02_memory_bytes.png)
+![The dword 0x12345678 occupies bytes 78, 56, 34, 12 at increasing addresses.](../diagrams/02_memory_bytes.png)
 
 The least significant byte lives at the lowest address on x86. A dword containing `0x12345678` is stored as `78 56 34 12`. Each byte keeps its bit order; little endian does not mean reverse every bit.
 
@@ -67,8 +67,8 @@ Ordinary scalar x86 loads often allow unaligned addresses, but access permission
 
 ---
 
-[Course map](README.md) · [Previous: 01](01_registers_and_sizes.md) · [Next: 03](03_arithmetic_and_flag_drama.md)
+[Course map](../README.md) · [Previous: 01](01_registers_and_sizes.md) · [Next: 03](03_arithmetic_and_flag_drama.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/02_memory_and_pointer_hell.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

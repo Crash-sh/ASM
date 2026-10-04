@@ -2,12 +2,14 @@
 
 > **NSD / MACHINE INTERROGATION** — What the fuck does this actually do? Good. That's a useful question. Open GDB and bring the registers, addresses, and instruction bytes into the conversation.
 
-**Lab:** [debugging example](examples/13_debugging_and_reading_the_nudes.asm), exit `0`. Its array sum is 754, stored in `observed`.
+**Lab:** [debugging example](../examples/13_debugging_and_reading_the_nudes.asm), exit `0`. Its array sum is 754, stored in `observed`.
 
 ## Start with a symbol and one instruction
 
 ```sh
-make build/13_debugging_and_reading_the_nudes
+mkdir -p build
+nasm -f elf64 -g -F dwarf examples/13_debugging_and_reading_the_nudes.asm -o build/13_debugging_and_reading_the_nudes.o
+ld build/13_debugging_and_reading_the_nudes.o -o build/13_debugging_and_reading_the_nudes
 gdb build/13_debugging_and_reading_the_nudes
 ```
 
@@ -53,7 +55,7 @@ objdump -d -Mintel build/13_debugging_and_reading_the_nudes
 readelf -r build/13_debugging_and_reading_the_nudes.o
 ```
 
-![Object sections and relocations feed the linker; ELF segments define runtime mapping permissions.](diagrams/13_elf.png)
+![Object sections and relocations feed the linker; ELF segments define runtime mapping permissions.](../diagrams/13_elf.png)
 
 Sections organize code/data for tools. Loadable segments tell Linux what to map and with which permissions. BSS can contribute more in-memory size than file-backed size. `.note.GNU-stack` tells the linker this object does not need an executable stack; inspect the resulting GNU_STACK program header rather than merely trusting a comment.
 
@@ -84,8 +86,8 @@ Optimization can remove variables or rearrange work. A shorter listing can still
 
 ---
 
-[Course map](README.md) · [Previous: 12](12_fizzbuzz_final_boss.md) · [Next: 14](14_x86_32_time_machine.md)
+[Course map](../README.md) · [Previous: 12](12_fizzbuzz_final_boss.md) · [Next: 14](14_x86_32_time_machine.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/13_debugging_and_reading_the_nudes.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

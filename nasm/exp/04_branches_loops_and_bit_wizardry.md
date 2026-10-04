@@ -2,7 +2,7 @@
 
 > **NSD / CONTROL FLOW** — Now we get to redirect execution. Pick the condition carefully: the CPU is perfectly willing to spend all night in the wrong loop.
 
-**Lab:** [control-flow example](examples/04_branches_loops_and_bit_wizardry.asm), exit `0`.
+**Lab:** [control-flow example](../examples/04_branches_loops_and_bit_wizardry.asm), exit `0`.
 
 ## Translate an if statement
 
@@ -26,7 +26,7 @@ For `eax=0xffffffff` and `ebx=1`, unsigned EAX is above EBX; signed EAX is below
 
 ## Give the loop a job and an exit
 
-![An array loop checks its bound before loading and advances its index before repeating.](diagrams/04_loop.png)
+![An array loop checks its bound before loading and advances its index before repeating.](../diagrams/04_loop.png)
 
 ```nasm
 xor ecx, ecx       ; i = 0
@@ -62,8 +62,8 @@ Variable ordinary shift counts use CL. Counts are masked by the instruction widt
 
 ---
 
-[Course map](README.md) · [Previous: 03](03_arithmetic_and_flag_drama.md) · [Next: 05](05_stack_calls_and_recursion.md)
+[Course map](../README.md) · [Previous: 03](03_arithmetic_and_flag_drama.md) · [Next: 05](05_stack_calls_and_recursion.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/04_branches_loops_and_bit_wizardry.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

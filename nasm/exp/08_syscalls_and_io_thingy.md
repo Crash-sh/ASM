@@ -2,7 +2,7 @@
 
 > **NSD / KERNEL UPLINK** — Kernel boundary ahead. Load the number, wire the arguments, inspect the result. Linux gets the request you actually made. Swearing at a bad descriptor remains unsupported.
 
-**Lab:** [copy program](examples/08_syscalls_and_io_thingy.asm).
+**Lab:** [copy program](../examples/08_syscalls_and_io_thingy.asm).
 
 ```sh
 printf 'link online\n' | ./build/08_syscalls_and_io_thingy
@@ -34,7 +34,7 @@ Raw errors are encoded as negative errno values. Libc wrappers typically return 
 
 ## Linux wrote some of it. Finish the job.
 
-![Write-all retries interruptions and advances pointer/count after each successful partial transfer.](diagrams/08_write_all.png)
+![Write-all retries interruptions and advances pointer/count after each successful partial transfer.](../diagrams/08_write_all.png)
 
 Suppose you request 100 bytes and get 30. The remaining work is pointer+30, count=70. Repeating the original request duplicates output. Advancing by 100 discards 70 bytes. Use the returned count. That's the record of what happened; the original count only records what we asked for.
 
@@ -65,8 +65,8 @@ A closed pipe reader can trigger SIGPIPE under the default signal disposition be
 
 ---
 
-[Course map](README.md) · [Previous: 07](07_strings_without_training_wheels.md) · [Next: 09](09_mmap_and_structs_in_the_wild.md)
+[Course map](../README.md) · [Previous: 07](07_strings_without_training_wheels.md) · [Next: 09](09_mmap_and_structs_in_the_wild.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/08_syscalls_and_io_thingy.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

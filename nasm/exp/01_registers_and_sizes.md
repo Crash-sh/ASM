@@ -2,13 +2,13 @@
 
 > **NSD / REGISTER ACCESS** — First target: the register file. RAX, EAX, AX, AL. Same storage, different access widths. Before writing anything, know which bits you're about to disturb.
 
-**Prerequisite:** chapter 00. **Lab:** [register example](examples/01_registers_and_sizes.asm), exit `0`, no output.
+**Prerequisite:** chapter 00. **Lab:** [register example](../examples/01_registers_and_sizes.asm), exit `0`, no output.
 
 ## Sixteen working registers, overlapping names
 
 The general-purpose registers are `rax rbx rcx rdx rsi rdi rbp rsp r8 r9 r10 r11 r12 r13 r14 r15`. `rip` tracks instruction execution and `rflags` carries status/control bits. They are not extra general-purpose storage.
 
-![RAX contains overlapping EAX, AX, and AL views; EAX writes clear the high half.](diagrams/01_register_views.png)
+![RAX contains overlapping EAX, AX, and AL views; EAX writes clear the high half.](../diagrams/01_register_views.png)
 
 | Full register | Low 32 bits | Low 16 bits | Low 8 bits |
 | --- | --- | --- | --- |
@@ -62,7 +62,9 @@ movsxd rdx, edx      ; RDX = ffffffffffffffff, signed -1
 ## Inspect and break it deliberately
 
 ```sh
-make build/01_registers_and_sizes
+mkdir -p build
+nasm -f elf64 -g -F dwarf examples/01_registers_and_sizes.asm -o build/01_registers_and_sizes.o
+ld build/01_registers_and_sizes.o -o build/01_registers_and_sizes
 gdb build/01_registers_and_sizes
 ```
 
@@ -74,8 +76,8 @@ Replace the EAX write in the example with an AX write. The internal comparison f
 
 ---
 
-[Course map](README.md) · [Previous: 00](00_start_here.md) · [Next: 02](02_memory_and_pointer_hell.md)
+[Course map](../README.md) · [Previous: 00](00_start_here.md) · [Next: 02](02_memory_and_pointer_hell.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/01_registers_and_sizes.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

@@ -6,13 +6,13 @@
 
 We start in userspace. Linux supplies the process, virtual memory, and system calls while we learn the instructions. The blacksite aesthetic does not grant kernel privileges. Bootloaders and Windows have different startup and interface rules; keep those experiments separate for now.
 
-For the background behind these names, keep [INFO DUMP](INFO_DUMP.md) open: ISA versus ABI, pointers and data models, calling conventions, and what changes when assembly moves to another target.
+For the background behind these names, keep [INFO DUMP](../INFO_DUMP.md) open: ISA versus ABI, pointers and data models, calling conventions, and what changes when assembly moves to another target.
 
 ## CPU, assembler, linker, kernel: know who does what
 
 A CPU executes encoded machine instructions. NASM translates your source into an object file containing instruction bytes, data, symbols, and relocation records. The linker resolves references and produces an ELF executable. Linux maps that executable into a process and starts it at its entry address.
 
-![Source passes through NASM, linker, and Linux before the CPU executes it.](diagrams/00_toolchain.png)
+![Source passes through NASM, linker, and Linux before the CPU executes it.](../diagrams/00_toolchain.png)
 
 C normally gives us another stage in front of this: the compiler translates C into assembly or generates machine code through its internal machinery. Here we're supplying the assembly ourselves. GCC can still arrange the linking of a NASM object. That's toolchain plumbing; it doesn't secretly turn our instructions back into C.
 
@@ -20,20 +20,21 @@ The ISA is the behavior the CPU promises. A microarchitecture is how a particula
 
 ## Get the tools and choose a directory
 
-You need `nasm`, GNU `ld`/`objdump`/`readelf`, `gcc`, `make`, and Python 3 for checks. GDB is for inspection; Graphviz is only for rebuilding diagrams. On Debian/Ubuntu the package names are `nasm binutils gcc make python3 gdb graphviz`. Use your distribution's package manager; the tutorial does not install software automatically.
+You need `nasm`, GNU `ld`/`objdump`/`readelf`, `gcc`. GDB is for inspection; Graphviz is only for rebuilding diagrams. On Debian/Ubuntu the package names are `nasm binutils gcc gdb graphviz`. Use your distribution's package manager; the tutorial does not install software automatically.
 
 From the repository root:
 
 ```sh
-cd extra_resources/nasm
-make
-make check
+cd nasm
+mkdir -p build
+nasm -f elf64 -g -F dwarf examples/00_start_here.asm -o build/00_start_here.o
+gcc -no-pie build/00_start_here.o -o build/00_start_here
 ./build/00_start_here
 ```
 
 Expected output: `CRASH@NSD: instruction stream online.` followed by a newline. All commands in later lessons assume you remain in this directory unless stated otherwise.
 
-Read [the executable example](examples/00_start_here.asm). It defines `main` and calls libc `puts`. The following smaller program instead starts directly at `_start`:
+Read [the executable example](../examples/00_start_here.asm). It defines `main` and calls libc `puts`. The following smaller program instead starts directly at `_start`:
 
 ```nasm
 bits 64
@@ -81,8 +82,8 @@ Change `mov edi, 0` to `mov edi, 53`. Predict the status before running. Then us
 
 ---
 
-[Course map](README.md) · [Next: 01](01_registers_and_sizes.md)
+[Course map](../README.md) · [Next: 01](01_registers_and_sizes.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/00_start_here.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

@@ -2,7 +2,7 @@
 
 > **NSD / FIELD EXERCISE** — Enough isolated instructions. We're taking input through validation, arithmetic, formatting, and output. Small program, full responsibility for every byte.
 
-**Lab:** [complete FizzBuzz program](examples/12_fizzbuzz_final_boss.asm). Default upper bound: 30. Optional argument: decimal 1..10000. Invalid input exits `13`; I/O failure exits `1`; success exits `0`.
+**Lab:** [complete FizzBuzz program](../examples/12_fizzbuzz_final_boss.asm). Default upper bound: 30. Optional argument: decimal 1..10000. Invalid input exits `13`; I/O failure exits `1`; success exits `0`.
 
 ```sh
 ./build/12_fizzbuzz_final_boss 16
@@ -20,7 +20,7 @@ Inspect argc before reading argv[1]. The sample accepts no argument or exactly o
 
 For each digit: `value = value * 10 + digit`. Start with value zero, reject an empty string, validate the character, bound the next result, then accumulate.
 
-![Input validation feeds decimal accumulation, then formatting runs repeated division backward into a buffer.](diagrams/12_decimal_pipeline.png)
+![Input validation feeds decimal accumulation, then formatting runs repeated division backward into a buffer.](../diagrams/12_decimal_pipeline.png)
 
 For a limit L and next digit d, avoid overflow by checking `value <= (L-d)/10` before multiplication. The sample's L=10000 allows an equivalent simpler check: previous value below 1000, or equal to 1000 with next digit zero. Final zero is rejected because the domain starts at 1. Leading zeros are accepted.
 
@@ -52,8 +52,8 @@ Before adding a calculator, specify divide-by-zero and overflow behavior. “Wha
 
 ---
 
-[Course map](README.md) · [Previous: 11](11_atomic_does_not_mean_nuclear.md) · [Next: 13](13_debugging_and_reading_the_nudes.md)
+[Course map](../README.md) · [Previous: 11](11_atomic_does_not_mean_nuclear.md) · [Next: 13](13_debugging_and_reading_the_nudes.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/12_fizzbuzz_final_boss.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

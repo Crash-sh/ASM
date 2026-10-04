@@ -2,7 +2,7 @@
 
 > **NSD / INCIDENT RECONSTRUCTION** — Back to the program that started this mess. Several bugs, several broken assumptions. We'll trace one input all the way through and account for each failure.
 
-**Prerequisites:** 01–08 and the decimal conversion in 12. **Lab:** [standalone tutorial copy](examples/15_user_input.asm), adapted from [your working experiment](../../nasm_experiments/01_user_input.asm). Accepts 1–12 unsigned decimal digits in one read, adds 13, prints the result and newline.
+**Prerequisites:** 01–08 and the decimal conversion in 12. **Lab:** [standalone tutorial copy](../examples/15_user_input.asm), preserved from the earlier input experiment (the current [experiment directory](../../nasm_experiments/) contains `00_init.asm`). Accepts 1–12 unsigned decimal digits in one read, adds 13, prints the result and newline.
 
 ## Follow one concrete input
 
@@ -17,7 +17,7 @@ For input `123` followed by Enter:
 | After formatting | RSI points at bytes `31 33 36 0a`, RDX=4 |
 | After write | RAX is a byte count/error, not 136 |
 
-![Read bytes become an integer, then a new output byte span; each stage has its own register contract.](diagrams/15_input_contracts.png)
+![Read bytes become an integer, then a new output byte span; each stage has its own register contract.](../diagrams/15_input_contracts.png)
 
 The character `'1'` is 49, not the integer 1. Subtracting `'0'` converts an already validated digit to its value. Walk it: `0*10+1=1`, then `1*10+2=12`, then `12*10+3=123`. That's the entire decimal accumulation. No recursion required, just a pointer that actually moves.
 
@@ -56,7 +56,9 @@ The first newline ends the parse; extra bytes from the same read are ignored. EO
 ## Build and test
 
 ```sh
-make build/15_user_input
+mkdir -p build
+nasm -f elf64 -g -F dwarf examples/15_user_input.asm -o build/15_user_input.o
+ld build/15_user_input.o -o build/15_user_input
 printf '123\n' | ./build/15_user_input
 printf '999999999999\n' | ./build/15_user_input
 printf '12x\n' | ./build/15_user_input
@@ -68,6 +70,6 @@ Expected successful output lines are `Enter a number: 136` and `Enter a number: 
 
 ---
 
-[Course map](README.md) · [Previous: 14](14_x86_32_time_machine.md) · [Next: 16](16_nasm_directives_macros_and_gas_translation.md)
+[Course map](../README.md) · [Previous: 14](14_x86_32_time_machine.md) · [Next: 16](16_nasm_directives_macros_and_gas_translation.md)
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

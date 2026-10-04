@@ -2,7 +2,7 @@
 
 > **NSD / BYTE STREAMS** — Today's sophisticated data structure is a pile of bytes and a pointer. Length, capacity, terminator: all our responsibility. The compiler used to handle some of this paperwork.
 
-**Lab:** [string example](examples/07_strings_without_training_wheels.asm), exit `0`. It checks uppercase conversion, copying, and a bounded terminator search.
+**Lab:** [string example](../examples/07_strings_without_training_wheels.asm), exit `0`. It checks uppercase conversion, copying, and a bounded terminator search.
 
 ## Bytes, characters, and terminators
 
@@ -25,7 +25,7 @@ The sample checks `i < BYTE_COUNT`, loads one byte, tests whether it is between 
 
 Blindly clearing bit 5 of every byte mangles punctuation too. This example handles ASCII lowercase, not international case conversion. The destination reserves an additional byte and explicitly stores a NUL after the copied content.
 
-![A counted buffer and a NUL-terminated buffer have different stopping rules.](diagrams/07_strings.png)
+![A counted buffer and a NUL-terminated buffer have different stopping rules.](../diagrams/07_strings.png)
 
 The terminator has to exist as an actual zero byte. Naming something `cstring` doesn't put one there. Reserving 12 bytes and reading 12 bytes leaves no extra byte for a terminator. If the consumer needs one, reserve space and write it after checking the read result.
 
@@ -53,8 +53,8 @@ Pointers to a function's temporary stack buffer stop being valid when that frame
 
 ---
 
-[Course map](README.md) · [Previous: 06](06_calling_c_without_pissing_off_the_abi.md) · [Next: 08](08_syscalls_and_io_thingy.md)
+[Course map](../README.md) · [Previous: 06](06_calling_c_without_pissing_off_the_abi.md) · [Next: 08](08_syscalls_and_io_thingy.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/07_strings_without_training_wheels.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

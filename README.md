@@ -27,12 +27,16 @@ ASM/
         12_fizzbuzz_final_boss.asm
         13_debugging_and_reading_the_nudes.asm
         14_x86_32_time_machine.asm
+        Makefile
     
     nasm/
+        .gitignore
         diagrams/
-            some_diagrams_to_visualize_what_happening
+            README.md
+            00_*.png through 15_*.png  (16 diagrams)
+            00_*.dot through 15_*.dot  (local editable sources)
         exp/
-            fuck_ton_of_markdown_explaining_whats_going_on
+            00_*.md through 17_*.md    (18 lessons)
         examples/
             00_start_here.asm
             01_registers_and_sizes.asm
@@ -51,7 +55,7 @@ ASM/
             14_x86_32_time_machine.asm
             15_user_input.asm
         INFO_DUMP.md
-        QUICK_REFERENCES.md
+        QUICK_REFERENCE.md
         REFERENCES.md
         README.md
 
@@ -69,4 +73,4 @@ ASM/
 
 ### NASM tutorial
 
-[Start the NASM field manual](extra_resources/nasm/README.md): 18 structured chapters, commented runnable examples, PNG diagrams, exercises, and a walkthrough of the input program. Follows the GAS lecture progression using NASM syntax.
+[Start the NASM field manual](nasm/README.md): 18 structured chapters, commented runnable examples, PNG diagrams, exercises, and a walkthrough of the input program. Follows the GAS lecture progression using NASM syntax.

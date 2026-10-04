@@ -14,7 +14,7 @@ nasm -f elf64 -g -F dwarf examples/06_calling_c_without_pissing_off_the_abi.asm 
 gcc -g -pie /tmp/abi.o -o /tmp/abi
 ```
 
-Run these from `extra_resources/nasm/`. A `.asm` extension does not force GCC to use NASM. Assemble with NASM explicitly, then link its object.
+Run these from `nasm/`. A `.asm` extension does not force GCC to use NASM. Assemble with NASM explicitly, then link its object.
 
 ## Operands and storage
 
@@ -40,7 +40,7 @@ Run these from `extra_resources/nasm/`. A `.asm` extension does not force GCC to
 | Special clobbers | caller-saved registers per ABI | RCX and R11; RAX result |
 | Stack | aligned to 16 before ordinary call | not a CALL return frame |
 
-Functions preserve RBX, RBP, R12–R15 and restore RSP. Vector and aggregate arguments have additional ABI rules. Variadic printf calls require AL to describe vector argument register usage. Syscall numbers here: read 0, write 1, mmap 9, munmap 11, exit 60. Consult [chapter 08](08_syscalls_and_io_thingy.md) for error interpretation.
+Functions preserve RBX, RBP, R12–R15 and restore RSP. Vector and aggregate arguments have additional ABI rules. Variadic printf calls require AL to describe vector argument register usage. Syscall numbers here: read 0, write 1, mmap 9, munmap 11, exit 60. Consult [chapter 08](exp/08_syscalls_and_io_thingy.md) for error interpretation.
 
 ## Flags and operations
 

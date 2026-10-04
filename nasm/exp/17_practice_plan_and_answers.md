@@ -13,7 +13,7 @@
 | Integration | 12–15 | Validate argv, format numbers, debug the input exercise |
 | Tool fluency | 16 | Translate directives and inspect emitted bytes |
 
-The expected outputs and statuses are executable specifications. `make check` runs all core examples and checks boundaries in the two input-driven programs. `make check32` is optional because host support varies. Diagram regeneration is independent of executable builds.
+Use the expected outputs and statuses in each lesson to check the examples built with the [course map commands](../README.md#build-and-run). The current tree has no automated check script. Check boundaries in both input-driven programs manually. The i386 example is optional because host support varies. Diagram regeneration is independent of executable builds.
 
 ## Small drills, concrete answers
 
@@ -64,6 +64,6 @@ When debugging, keep a tiny trace table of instruction, important registers befo
 
 ---
 
-[Course map](README.md) · [Previous: 16](16_nasm_directives_macros_and_gas_translation.md)
+[Course map](../README.md) · [Previous: 16](16_nasm_directives_macros_and_gas_translation.md)
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

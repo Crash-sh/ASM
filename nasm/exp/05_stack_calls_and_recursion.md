@@ -2,7 +2,7 @@
 
 > **NSD / RETURN PATH** — The return address is sitting in writable memory. Count every byte you put above it. RET has no interest in what you meant to pop.
 
-**Lab:** [stack example](examples/05_stack_calls_and_recursion.asm), exit `0`. It checks factorial, saved RBX, and restored RSP.
+**Lab:** [stack example](../examples/05_stack_calls_and_recursion.asm), exit `0`. It checks factorial, saved RBX, and restored RSP.
 
 ## Four operations. Count the bytes.
 
@@ -17,7 +17,7 @@ For the ordinary 64-bit forms used here:
 
 The stack grows toward lower addresses. `sub rsp,32` reserves space; `add rsp,32` releases it without clearing old bytes. Those local bytes can contain leftovers from earlier work. Initialize the ones you read; a stack reservation doesn't come with housekeeping.
 
-![Factorial frame showing return address, saved RBP, saved RBX, and local storage.](diagrams/05_stack_frame.png)
+![Factorial frame showing return address, saved RBP, saved RBX, and local storage.](../diagrams/05_stack_frame.png)
 
 A function boundary is a convention implemented with instructions. A label neither saves state nor inserts a return.
 
@@ -65,8 +65,8 @@ SysV Linux userspace also provides a 128-byte red zone below RSP. A leaf can use
 
 ---
 
-[Course map](README.md) · [Previous: 04](04_branches_loops_and_bit_wizardry.md) · [Next: 06](06_calling_c_without_pissing_off_the_abi.md)
+[Course map](../README.md) · [Previous: 04](04_branches_loops_and_bit_wizardry.md) · [Next: 06](06_calling_c_without_pissing_off_the_abi.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/05_stack_calls_and_recursion.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

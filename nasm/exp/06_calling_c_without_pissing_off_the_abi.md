@@ -2,7 +2,7 @@
 
 > **NSD / ABI HANDSHAKE** — libc is on the other end of this call. It expects the ABI. Give it the registers, alignment, and types it asked for; the NSD badge buys no exceptions.
 
-**Lab:** [libc example](examples/06_calling_c_without_pissing_off_the_abi.asm). Expected output: `sum=28, float=13.53` and newline, status `0`.
+**Lab:** [libc example](../examples/06_calling_c_without_pissing_off_the_abi.asm). Expected output: `sum=28, float=13.53` and newline, status `0`.
 
 ## The ABI connects separately written code
 
@@ -10,7 +10,7 @@ An application binary interface specifies register roles, stack alignment, data 
 
 For ordinary scalar integer/pointer arguments, the first six positions use RDI, RSI, RDX, RCX, R8, R9. Later ones use stack slots. Floating-point arguments have a separate XMM0–XMM7 allocation sequence. An integer result uses RAX; a scalar double result uses XMM0. Structs have additional classification rules; do not extend this small table by guessing.
 
-![Function ABI and syscall ABI use different fourth argument registers.](diagrams/06_abi.png)
+![Function ABI and syscall ABI use different fourth argument registers.](../diagrams/06_abi.png)
 
 ## Assemble first, link with the C runtime second
 
@@ -56,8 +56,8 @@ To call assembly from C, put a helper in its own object with `global helper`, us
 
 ---
 
-[Course map](README.md) · [Previous: 05](05_stack_calls_and_recursion.md) · [Next: 07](07_strings_without_training_wheels.md)
+[Course map](../README.md) · [Previous: 05](05_stack_calls_and_recursion.md) · [Next: 07](07_strings_without_training_wheels.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/06_calling_c_without_pissing_off_the_abi.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

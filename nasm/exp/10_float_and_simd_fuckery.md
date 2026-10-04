@@ -2,7 +2,7 @@
 
 > **NSD / VECTOR UNIT** — Vector unit online. We get several lanes of arithmetic and a wider memory access to account for. Check the bounds before admiring the throughput.
 
-**Lab:** [SSE2 example](examples/10_float_and_simd_fuckery.asm), exit `0`. No AVX requirement.
+**Lab:** [SSE2 example](../examples/10_float_and_simd_fuckery.asm), exit `0`. No AVX requirement.
 
 ## Inspect the number format first
 
@@ -36,7 +36,7 @@ The sample intentionally compares a quiet NaN and checks the unordered condition
 
 ## Packed operations: independent lanes
 
-![Four dword lanes add independently, producing 14, 55, 692, and 3.](diagrams/10_simd_lanes.png)
+![Four dword lanes add independently, producing 14, 55, 692, and 3.](../diagrams/10_simd_lanes.png)
 
 `paddd` adds four 32-bit lanes independently, wrapping in each lane. It does not propagate carry from one lane into the next like a 128-bit integer adder. The example adds `{13,53,689,-1}` and `{1,2,3,4}` to get `{14,55,692,3}`, then reduces the lanes to sum 764.
 
@@ -52,8 +52,8 @@ SSE2 is baseline for our x86-64 course. AVX and AVX-512 require feature checks a
 
 ---
 
-[Course map](README.md) · [Previous: 09](09_mmap_and_structs_in_the_wild.md) · [Next: 11](11_atomic_does_not_mean_nuclear.md)
+[Course map](../README.md) · [Previous: 09](09_mmap_and_structs_in_the_wild.md) · [Next: 11](11_atomic_does_not_mean_nuclear.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/10_float_and_simd_fuckery.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

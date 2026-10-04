@@ -2,7 +2,7 @@
 
 > **NSD / STATUS FLAGS** — Arithmetic leaves flags behind. Useful evidence, short shelf life. Read them before the next instruction overwrites the part you needed.
 
-**Lab:** [arithmetic example](examples/03_arithmetic_and_flag_drama.asm), exit `0`.
+**Lab:** [arithmetic example](../examples/03_arithmetic_and_flag_drama.asm), exit `0`.
 
 ## Arithmetic is width-limited
 
@@ -18,7 +18,7 @@ For an eight-bit operation, 255 + 1 wraps to 0. The CPU reports information abou
 | SF | Most significant result bit |
 | PF | Even parity of the low byte, not the whole result |
 
-![Two additions give different carry and signed-overflow results.](diagrams/03_flags.png)
+![Two additions give different carry and signed-overflow results.](../diagrams/03_flags.png)
 
 `255 + 1` in a byte gives zero, CF=1, OF=0. `127 + 1` gives `0x80`, CF=0, OF=1. Same addition instruction; two different questions about representability.
 
@@ -69,8 +69,8 @@ Then explain why `lea rax,[rdi+rdi*4]` gives 5×RDI without touching arithmetic 
 
 ---
 
-[Course map](README.md) · [Previous: 02](02_memory_and_pointer_hell.md) · [Next: 04](04_branches_loops_and_bit_wizardry.md)
+[Course map](../README.md) · [Previous: 02](02_memory_and_pointer_hell.md) · [Next: 04](04_branches_loops_and_bit_wizardry.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/03_arithmetic_and_flag_drama.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

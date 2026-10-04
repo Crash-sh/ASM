@@ -2,7 +2,7 @@
 
 > **NSD / BACKGROUND BRIEFING** — Assembly removes a lot of conveniences. It does not remove the agreements underneath them. Before we start moving registers around, find out who expects what to be in them.
 
-Read this before [chapter 00](00_start_here.md), or keep it open when a lesson throws another acronym at you. You do not need to memorize the whole file before writing an instruction. Learn enough to identify which part of the system you are currently breaking.
+Read this before [chapter 00](exp/00_start_here.md), or keep it open when a lesson throws another acronym at you. You do not need to memorize the whole file before writing an instruction. Learn enough to identify which part of the system you are currently breaking.
 
 ## Contents
 
@@ -143,7 +143,7 @@ A bit is zero or one; a byte is eight bits on our targets. Hex is a compact spel
 
 A register has a fixed width. Eight bits provide 256 patterns. Unsigned interpretation gives 0..255; signed two's complement gives −128..127. Signedness is not a sticker attached to the register. Instructions, extensions, comparisons, and our interpretation determine the meaning.
 
-Practice converting small binary/hex values, setting a bit with OR, clearing bits with AND, and identifying the top bit. Understand that arithmetic can wrap and that a processor's overflow behavior is not automatically the C language's rule. [Chapters 01](01_registers_and_sizes.md) and [03](03_arithmetic_and_flag_drama.md) do the actual register work.
+Practice converting small binary/hex values, setting a bit with OR, clearing bits with AND, and identifying the top bit. Understand that arithmetic can wrap and that a processor's overflow behavior is not automatically the C language's rule. [Chapters 01](exp/01_registers_and_sizes.md) and [03](exp/03_arithmetic_and_flag_drama.md) do the actual register work.
 
 ### Addresses, values, and bounds
 
@@ -151,7 +151,7 @@ An address identifies a location. The bytes stored there are another value. A po
 
 Arrays need element sizes and counts. A pointer alone does not carry either. Endianness describes how a multibyte value's bytes are arranged; alignment describes address constraints or preferences for an object/access. Neither establishes whether an access stays inside the object.
 
-You should be able to draw four bytes containing an integer, a separate eight-byte pointer to them, and the result of loading through that pointer. If the drawing is unclear, slow down in [chapter 02](02_memory_and_pointer_hell.md). Memory bugs are easier to understand before the addresses become a thousand lines of hex.
+You should be able to draw four bytes containing an integer, a separate eight-byte pointer to them, and the result of loading through that pointer. If the drawing is unclear, slow down in [chapter 02](exp/02_memory_and_pointer_hell.md). Memory bugs are easier to understand before the addresses become a thousand lines of hex.
 
 ### Stack, lifetime, and control flow
 
@@ -159,7 +159,7 @@ Understand assignment, conditions, loops, and function calls from any programmin
 
 The stack holds temporary state and often saved registers or return addresses. Static storage, stack locals, and dynamically allocated objects have different lifetimes. Copying a pointer does not extend an object's lifetime. Returning the address of a discarded stack local can look fine until the next call reuses the bytes. That's a bug with good timing, not successful memory management.
 
-Learn the difference between a value and its representation, and between an object being mapped and still belonging to you. [Chapter 05](05_stack_calls_and_recursion.md) traces the stack; [chapter 09](09_mmap_and_structs_in_the_wild.md) handles dynamic mappings.
+Learn the difference between a value and its representation, and between an object being mapped and still belonging to you. [Chapter 05](exp/05_stack_calls_and_recursion.md) traces the stack; [chapter 09](exp/09_mmap_and_structs_in_the_wild.md) handles dynamic mappings.
 
 ### Enough C to read the interface
 
@@ -171,7 +171,7 @@ You do not need C mastery to start. You do need to understand that `*p` accesses
 
 A process receives virtual memory and permissions; a userspace program does not get unrestricted physical RAM access. A syscall requests a kernel service. Writing assembly does not change your privilege level.
 
-Know stdin/stdout/stderr, redirection, pipes, exit status, EOF, and byte counts. Reads can be short, and writes can be partial. A terminal often makes input look line-oriented, but a generic byte stream does not promise one read per line. [Chapter 08](08_syscalls_and_io_thingy.md) keeps the accounting explicit.
+Know stdin/stdout/stderr, redirection, pipes, exit status, EOF, and byte counts. Reads can be short, and writes can be partial. A terminal often makes input look line-oriented, but a generic byte stream does not promise one read per line. [Chapter 08](exp/08_syscalls_and_io_thingy.md) keeps the accounting explicit.
 
 ### The build pipeline and debugger
 
@@ -318,4 +318,4 @@ Before diving deeper, explain these without guessing:
 
 If a row feels shaky, follow the linked lesson or manual and run a small experiment. Nobody needs to memorize every ABI. You do need to know when you've crossed into a different one. That's usually the point where the old assumptions start doing damage.
 
-[Course map](README.md) · [Start the lessons](00_start_here.md) · [External resources](../RESOURCES.md) · [NASM quick reference](QUICK_REFERENCE.md)
+[Course map](README.md) · [Start the lessons](exp/00_start_here.md) · [External resources](../extra_resources/RESOURCES.md) · [NASM quick reference](QUICK_REFERENCE.md)

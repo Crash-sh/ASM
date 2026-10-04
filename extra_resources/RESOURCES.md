@@ -2,7 +2,7 @@
 
 > **NSD / TECHNICAL RECORDS** — The tutorial gets you oriented. The specification settles the argument. Keep the right document open for the machine you're actually targeting.
 
-Start locally with the [NASM course](nasm/README.md) and [INFO DUMP: prerequisites, ABIs, and porting](nasm/INFO_DUMP.md). The [quick reference](nasm/QUICK_REFERENCE.md) is for the details you want beside the debugger.
+Start locally with the [NASM course](../nasm/README.md) and [INFO DUMP: prerequisites, ABIs, and porting](../nasm/INFO_DUMP.md). The [quick reference](../nasm/QUICK_REFERENCE.md) is for the details you want beside the debugger.
 
 ## Linux interfaces: ask what the kernel actually expects
 

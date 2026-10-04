@@ -2,13 +2,13 @@
 
 > **NSD / SHARED STATE** — Second core enters the picture. Now the bug can depend on when something happens. Establish exactly which operation is atomic before trusting the result.
 
-**Lab:** [atomic instruction example](examples/11_atomic_does_not_mean_nuclear.asm), exit `0`. It is a single-threaded semantics check, not a multithreaded correctness proof or contention benchmark.
+**Lab:** [atomic instruction example](../examples/11_atomic_does_not_mean_nuclear.asm), exit `0`. It is a single-threaded semantics check, not a multithreaded correctness proof or contention benchmark.
 
 ## The lost update
 
 Start at counter=13. Two threads each read 13, calculate 53, and store 53. Final value is 53, though two additions of 40 should give 93. Both threads followed their instructions. We failed to make the whole update indivisible. Hard to blame the silicon for that one.
 
-![An ordinary interleaving loses an update; atomic fetch-add operations serialize to 93.](diagrams/11_atomic_updates.png)
+![An ordinary interleaving loses an update; atomic fetch-add operations serialize to 93.](../diagrams/11_atomic_updates.png)
 
 An appropriately aligned ordinary load/store can be atomic while load/add/store as a sequence is not. Size, alignment, and memory type matter. This chapter assumes normal cacheable write-back memory and naturally aligned operands.
 
@@ -54,8 +54,8 @@ A pointer can change A→B→A, making a simple equality comparison miss interve
 
 ---
 
-[Course map](README.md) · [Previous: 10](10_float_and_simd_fuckery.md) · [Next: 12](12_fizzbuzz_final_boss.md)
+[Course map](../README.md) · [Previous: 10](10_float_and_simd_fuckery.md) · [Next: 12](12_fizzbuzz_final_boss.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/11_atomic_does_not_mean_nuclear.asm).
 
-Manuals: [reference index](REFERENCES.md).
+Manuals: [reference index](../REFERENCES.md).

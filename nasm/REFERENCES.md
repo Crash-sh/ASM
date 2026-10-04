@@ -1,6 +1,6 @@
 # Technical records — manuals and provenance
 
-The course's structure, examples, direct tone, and C comparisons follow the repository's [GAS lectures](../../gas_asm_lecture/). Chapters 00–14 adapt the corresponding local examples into NASM, retaining instruction commentary. The [input chapter](15_your_input_program_from_bytes_to_number.md) documents the user's [NASM experiment](../../nasm_experiments/01_user_input.asm). New Markdown explanations and diagrams connect those examples into a standalone course.
+The course's structure, examples, direct tone, and C comparisons follow the repository's [GAS lectures](../gas_asm_lecture/). Chapters 00–14 adapt the corresponding local examples into NASM, retaining instruction commentary. The [input chapter](exp/15_your_input_program_from_bytes_to_number.md) documents the [standalone input example](examples/15_user_input.asm). New Markdown explanations and diagrams connect those examples into a standalone course.
 
 Datasheets are long threat letters. These are the ones worth keeping open: the assembler's syntax, the CPU's instruction contracts, the ABI, and Linux's interfaces. When a detail matters, find the relevant section. Neither a tutorial nor a confident comment outranks the specification.
 
@@ -22,4 +22,4 @@ The Linux man pages often describe C wrappers. When writing raw assembly, distin
 
 The examples are instructional: the atomic example does not start threads; the single-read input exercise is not a streaming line reader; no benchmark establishes performance claims. The tests check actual outputs and boundaries without claiming to verify every OS scheduling or error condition.
 
-For ABI comparisons and the cross-architecture examples, see [INFO DUMP](INFO_DUMP.md). The shared [external resource list](../RESOURCES.md) also covers Microsoft x64, Arm, RISC-V, and cross-compilation tools.
+For ABI comparisons and the cross-architecture examples, see [INFO DUMP](INFO_DUMP.md). The shared [external resource list](../extra_resources/RESOURCES.md) also covers Microsoft x64, Arm, RISC-V, and cross-compilation tools.

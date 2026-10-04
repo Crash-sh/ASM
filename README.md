@@ -6,9 +6,13 @@
 ### Dir
 ```text
 ASM/
+    extra_resources/
+        RESOURCES.md
+        register_chart.png
     gas_asm_lecture/
         0-14 GAS asm lectures
     nasm_experiments/
+
 
     README.md
 ```

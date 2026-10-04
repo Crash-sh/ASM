@@ -1,0 +1,16 @@
+digraph lesson {
+  graph [bgcolor="#101827", fontname="DejaVu Sans", fontsize=22, fontcolor="#f1f5f9", pad=0.35, nodesep=0.35, ranksep=0.5, dpi=135, labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#20324b", color="#6583a8", fontcolor="#f1f5f9", fontname="DejaVu Sans", fontsize=14, margin="0.20,0.14", penwidth=1.3];
+  edge [color="#55cfcb", fontcolor="#bcefe9", fontname="DejaVu Sans", fontsize=12, arrowsize=0.8, penwidth=1.5];
+
+rankdir=TB;
+label="14 / MODE + FORMAT + ABI MUST AGREE";
+x [label="64-bit course\nbits 64 / nasm -f elf64\nld (x86-64)\n64-bit pointers; syscall; exit=60"];
+y [label="Optional i386 program\nbits 32 / nasm -f elf32\nld -m elf_i386\n32-bit pointers; int 0x80; exit=1"];
+l [label="OS loader must support the executable\nBITS alone does not switch a running process"];
+n [label="16-bit real mode and x32 ABI are separate targets\nDo not infer them from one register spelling"];
+x -> l [label="ELF64"];
+y -> l [label="ELF32 + compatibility support"];
+l -> n [label="know the environment"];
+{rank=same;x;y;}
+}

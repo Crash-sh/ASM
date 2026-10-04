@@ -1,0 +1,24 @@
+digraph lesson {
+  graph [bgcolor="#101827", fontname="DejaVu Sans", fontsize=22, fontcolor="#f1f5f9", pad=0.35, nodesep=0.35, ranksep=0.5, dpi=135, labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#20324b", color="#6583a8", fontcolor="#f1f5f9", fontname="DejaVu Sans", fontsize=14, margin="0.20,0.14", penwidth=1.3];
+  edge [color="#55cfcb", fontcolor="#bcefe9", fontname="DejaVu Sans", fontsize=12, arrowsize=0.8, penwidth=1.5];
+
+rankdir=TB;
+label="08 / WRITE ALL REMAINING BYTES";
+i [label="fd, pointer, remaining"];
+c [label="remaining == 0?"];
+w [label="write(fd, pointer, remaining)"];
+r [label="Inspect RAX"];
+a [label="RAX > 0: pointer += RAX\nremaining -= RAX"];
+ok [label="Return 0: success"];
+err [label="Return negative error\nZero progress: report EIO"];
+i -> c [label=""];
+c -> ok [label="yes"];
+c -> w [label="no"];
+w -> r [label="syscall clobbers RCX/R11"];
+r -> w [label="-EINTR: retry same range"];
+r -> a [label="positive count"];
+a -> c [label=""];
+r -> err [label="other error / zero progress"];
+
+}

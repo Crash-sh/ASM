@@ -1,0 +1,18 @@
+digraph lesson {
+  graph [bgcolor="#101827", fontname="DejaVu Sans", fontsize=22, fontcolor="#f1f5f9", pad=0.35, nodesep=0.35, ranksep=0.5, dpi=135, labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#20324b", color="#6583a8", fontcolor="#f1f5f9", fontname="DejaVu Sans", fontsize=14, margin="0.20,0.14", penwidth=1.3];
+  edge [color="#55cfcb", fontcolor="#bcefe9", fontname="DejaVu Sans", fontsize=12, arrowsize=0.8, penwidth=1.5];
+
+rankdir=TB;
+label="15 / YOUR PROGRAM: FIVE DIFFERENT REPRESENTATIONS";
+r [label="READ\nRSI -> input buffer, RDX = capacity\nReturn RAX = bytes read (4)"];
+p [label="PARSE\n31 32 33 0a -> integer 123\nRSI advances, RCX remaining decreases"];
+a [label="ADD\nRAX = 123 + 13 = 136"];
+f [label="FORMAT\nRAX consumed by repeated division\nReturn RSI -> 31 33 36 0a, RDX = 4"];
+w [label="WRITE\nConsumes pointer and byte count\nReturn RAX = bytes written or raw error"];
+r -> p [label="count bounds the loads"];
+p -> a [label="binary value, not digit bytes"];
+a -> f [label="unsigned integer"];
+f -> w [label="contiguous bytes, not qword pushes"];
+
+}

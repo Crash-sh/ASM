@@ -1,0 +1,15 @@
+digraph lesson {
+  graph [bgcolor="#101827", fontname="DejaVu Sans", fontsize=22, fontcolor="#f1f5f9", pad=0.35, nodesep=0.35, ranksep=0.5, dpi=135, labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#20324b", color="#6583a8", fontcolor="#f1f5f9", fontname="DejaVu Sans", fontsize=14, margin="0.20,0.14", penwidth=1.3];
+  edge [color="#55cfcb", fontcolor="#bcefe9", fontname="DejaVu Sans", fontsize=12, arrowsize=0.8, penwidth=1.5];
+
+rankdir=TB;
+label="06 / TWO DIFFERENT INTERFACES";
+c [label="SysV scalar C function call\nArg 1 RDI   Arg 2 RSI   Arg 3 RDX\nArg 4 RCX   Arg 5 R8    Arg 6 R9\nResult RAX; double result XMM0"];
+k [label="Linux x86-64 syscall\nNumber RAX\nArg 1 RDI   Arg 2 RSI   Arg 3 RDX\nArg 4 R10   Arg 5 R8    Arg 6 R9\nResult RAX; RCX and R11 clobbered"];
+s [label="CALL pushes a return address\nAlign RSP to 16 BEFORE ordinary CALL"];
+y [label="SYSCALL is not CALL\nDo not keep a live counter in RCX"];
+c -> s [label="function boundary"];
+k -> y [label="kernel boundary"];
+{rank=same;c;k;} {rank=same;s;y;}
+}

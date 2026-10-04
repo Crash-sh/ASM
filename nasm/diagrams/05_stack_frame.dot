@@ -1,0 +1,20 @@
+digraph lesson {
+  graph [bgcolor="#101827", fontname="DejaVu Sans", fontsize=22, fontcolor="#f1f5f9", pad=0.35, nodesep=0.35, ranksep=0.5, dpi=135, labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#20324b", color="#6583a8", fontcolor="#f1f5f9", fontname="DejaVu Sans", fontsize=14, margin="0.20,0.14", penwidth=1.3];
+  edge [color="#55cfcb", fontcolor="#bcefe9", fontname="DejaVu Sans", fontsize=12, arrowsize=0.8, penwidth=1.5];
+
+rankdir=TB;
+label="05 / FACTORIAL FRAME AT NESTED CALL";
+ra [label="Higher addresses\n[rbp+8]  Return address to caller"];
+bp [label="[rbp]  Saved caller RBP"];
+bx [label="[rbp-8]  Saved caller RBX"];
+loc [label="[rbp-16]  Local n / 8-byte reservation\nRSP points here before nested CALL"];
+next [label="Nested CALL pushes another return address\nRSP moves down 8 bytes"];
+undo [label="Return path: add rsp,8; pop rbx; pop rbp; ret\nUndo this frame in reverse order"];
+ra -> bp [label="-8 bytes"];
+bp -> bx [label="-8 bytes"];
+bx -> loc [label="-8 bytes"];
+loc -> next [label="stack grows toward lower addresses"];
+next -> undo [label="nested call must return first"];
+
+}

@@ -1,0 +1,18 @@
+digraph lesson {
+  graph [bgcolor="#101827", fontname="DejaVu Sans", fontsize=22, fontcolor="#f1f5f9", pad=0.35, nodesep=0.35, ranksep=0.5, dpi=135, labelloc=t];
+  node [shape=box, style="rounded,filled", fillcolor="#20324b", color="#6583a8", fontcolor="#f1f5f9", fontname="DejaVu Sans", fontsize=14, margin="0.20,0.14", penwidth=1.3];
+  edge [color="#55cfcb", fontcolor="#bcefe9", fontname="DejaVu Sans", fontsize=12, arrowsize=0.8, penwidth=1.5];
+
+rankdir=TB;
+label="01 / ONE REGISTER, OVERLAPPING VIEWS";
+r [label="RAX: bits 63 ...................................... 0\nFull 64-bit storage"];
+e [label="EAX: bits 31 ................ 0\nWrite clears RAX bits 63..32"];
+a [label="AX: bits 15 .... 0\nWrite preserves all other bits"];
+b [label="AL: bits 7 .. 0\nWrite preserves all other bits"];
+t [label="RAX = ffffffffffffffff\nmov al, 0x13  -> ffffffffffffff13\nmov eax, 0x13 -> 0000000000000013"];
+r -> e [label="low 32 bits"];
+e -> a [label="low 16 bits"];
+a -> b [label="low 8 bits"];
+b -> t [label="inspect the actual write width"];
+
+}

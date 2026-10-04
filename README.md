@@ -54,16 +54,16 @@ ASM/
             13_debugging_and_reading_the_nudes.asm
             14_x86_32_time_machine.asm
             15_user_input.asm
-        INFO_DUMP.md
         QUICK_REFERENCE.md
         REFERENCES.md
         README.md
 
     nasm_experiments/
         00_init.asm
-
+        sieve.asm
     .gitignore
     README.md
+    INFO_DUMP.md
 ```
 
 ### Notes

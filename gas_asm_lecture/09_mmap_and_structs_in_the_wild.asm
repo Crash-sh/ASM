@@ -9,7 +9,7 @@
     mmap requests a virtual-memory mapping. malloc usually subdivides larger
     regions and keeps bookkeeping; one mmap per tiny object is not an
     efficient malloc replacement. See descend/but_wtf_malloc_actually_is.c
-    for Neuro's sbrk-based allocator experiment elsewhere in this repo.
+    for Neuro's sbrk-based allocator experiment elsewhere in Basic-C-Examples repo.
 
     Linux mmap args: address hint, length, protection, flags, fd, offset.
     NULL hint lets kernel choose. PROT_READ|PROT_WRITE means readable/writable.

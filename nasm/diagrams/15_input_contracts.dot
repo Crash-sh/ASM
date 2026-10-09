@@ -4,7 +4,7 @@ digraph lesson {
   edge [color="#55cfcb", fontcolor="#bcefe9", fontname="DejaVu Sans", fontsize=12, arrowsize=0.8, penwidth=1.5];
 
 rankdir=TB;
-label="15 / YOUR PROGRAM: FIVE DIFFERENT REPRESENTATIONS";
+label="15 / BYTES TO NUMBERS AND BACK";
 r [label="READ\nRSI -> input buffer, RDX = capacity\nReturn RAX = bytes read (4)"];
 p [label="PARSE\n31 32 33 0a -> integer 123\nRSI advances, RCX remaining decreases"];
 a [label="ADD\nRAX = 123 + 13 = 136"];

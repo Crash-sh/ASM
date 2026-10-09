@@ -22,7 +22,7 @@ Need the background first? Read [INFO DUMP — prerequisites, ABIs, and porting]
 - **18 ordered chapters**, from toolchain basics through SIMD, atomics, debugging, and practice projects.
 - **16 independent commented NASM programs:** 15 x86-64 programs and one optional i386 program.
 - **16 PNG diagrams**, with editable Graphviz `.dot` sources available locally.
-- A dedicated reconstruction of [your input-and-add-13 program](exp/15_your_input_program_from_bytes_to_number.md).
+- A dedicated reconstruction of [Neuro's input-and-add-13 program](exp/15_bytes_to_numbers_and_back.md).
 - Exercises, answer notes, a [quick reference](QUICK_REFERENCE.md), and [primary-source references](REFERENCES.md).
 
 The scope is Linux ELF userspace on x86. It does not assume prior assembly knowledge, but basic C helps explain pointers and function interfaces. Bootloaders, kernel development, Windows calling conventions, full Unicode handling, and production concurrent data structures need additional courses.
@@ -48,7 +48,7 @@ for source in examples/*.asm; do
     esac || break
 done
 ./build/00_start_here
-printf '123\n' | ./build/15_user_input
+printf '123\n' | ./build/15_bytes_to_numbers_and_back
 ./build/12_fizzbuzz_final_boss 16
 ```
 
@@ -75,7 +75,7 @@ Build and run the optional legacy target using [chapter 14's commands](exp/14_x8
 | [12 — FizzBuzz project](exp/12_fizzbuzz_final_boss.md) | argv, bounded parsing, decimal formatting, helpers | [12](examples/12_fizzbuzz_final_boss.asm) |
 | [13 — Debugging](exp/13_debugging_and_reading_the_nudes.md) | GDB, bytes, symbols, ELF, relocations, diagnosis | [13](examples/13_debugging_and_reading_the_nudes.asm) |
 | [14 — Optional i386](exp/14_x86_32_time_machine.md) | 32-bit mode, format, stack arguments, int 0x80 | [14](examples/14_x86_32_time_machine.asm) |
-| [15 — Your input program](exp/15_your_input_program_from_bytes_to_number.md) | Explain every original bug and the repaired data flow | [15](examples/15_user_input.asm) |
+| [15 — Bytes to numbers and back](exp/15_bytes_to_numbers_and_back.md) | Explain every original bug and the repaired data flow | [15](examples/15_bytes_to_numbers_and_back.asm) |
 | [16 — NASM translation desk](exp/16_nasm_directives_macros_and_gas_translation.md) | GAS differences, local labels, directives, macros | Syntax exercises |
 | [17 — Practice and answers](exp/17_practice_plan_and_answers.md) | Guided drills, signed parsing, line reader, calculator | Project specifications |
 

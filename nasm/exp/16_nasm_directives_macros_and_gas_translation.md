@@ -77,6 +77,6 @@ Most arithmetic instructions cannot encode an arbitrary 64-bit immediate; many u
 
 ---
 
-[Course map](../README.md) · [Previous: 15](15_your_input_program_from_bytes_to_number.md) · [Next: 17](17_practice_plan_and_answers.md)
+[Course map](../README.md) · [Previous: 15](15_bytes_to_numbers_and_back.md) · [Next: 17](17_practice_plan_and_answers.md)
 
 Manuals: [reference index](../REFERENCES.md).

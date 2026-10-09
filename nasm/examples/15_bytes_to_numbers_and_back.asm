@@ -1,7 +1,9 @@
 ; NSD / INPUT INCIDENT RECONSTRUCTION
-; Read 15_your_input_program_from_bytes_to_number.md one directory above.
+; Read ../exp/15_bytes_to_numbers_and_back.md for the walkthrough.
 ; Standalone snapshot of nasm_experiments/01_user_input.asm.
-; Build: make build/15_user_input (from extra_sources/nasm).
+; Build from nasm/:
+; nasm -f elf64 -g -F dwarf examples/15_bytes_to_numbers_and_back.asm -o build/15_bytes_to_numbers_and_back.o
+; ld build/15_bytes_to_numbers_and_back.o -o build/15_bytes_to_numbers_and_back
 ; Domain: 1..12 unsigned decimal digits, one read, optional final newline.
 ; This introductory example does not loop over short reads/writes or check
 ; write errors. Chapter 08 provides the fuller I/O contract.

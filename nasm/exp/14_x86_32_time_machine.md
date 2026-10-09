@@ -51,7 +51,7 @@ And because the naming wasn't crowded enough, there's x32: 64-bit instruction mo
 
 ---
 
-[Course map](../README.md) · [Previous: 13](13_debugging_and_reading_the_nudes.md) · [Next: 15](15_your_input_program_from_bytes_to_number.md)
+[Course map](../README.md) · [Previous: 13](13_debugging_and_reading_the_nudes.md) · [Next: 15](15_bytes_to_numbers_and_back.md)
 
 Companion: [original GAS lecture](../../gas_asm_lecture/14_x86_32_time_machine.asm).
 

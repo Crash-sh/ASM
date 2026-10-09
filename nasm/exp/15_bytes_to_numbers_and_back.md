@@ -1,8 +1,8 @@
-# 15 — Your input program, from bytes to number and back
+# 15 — Neuro's input program, from bytes to number and back
 
 > **NSD / INCIDENT RECONSTRUCTION** — Back to the program that started this mess. Several bugs, several broken assumptions. We'll trace one input all the way through and account for each failure.
 
-**Prerequisites:** 01–08 and the decimal conversion in 12. **Lab:** [standalone tutorial copy](../examples/15_user_input.asm), preserved from the earlier input experiment (the current [experiment directory](../../nasm_experiments/) contains `00_init.asm`). Accepts 1–12 unsigned decimal digits in one read, adds 13, prints the result and newline.
+**Prerequisites:** 01–08 and the decimal conversion in 12. **Lab:** [standalone tutorial copy](../examples/15_bytes_to_numbers_and_back.asm), preserved from the earlier input experiment (the current [experiment directory](../../nasm_experiments/) contains `00_init.asm`). Accepts 1–12 unsigned decimal digits in one read, adds 13, prints the result and newline.
 
 ## Follow one concrete input
 
@@ -57,11 +57,11 @@ The first newline ends the parse; extra bytes from the same read are ignored. EO
 
 ```sh
 mkdir -p build
-nasm -f elf64 -g -F dwarf examples/15_user_input.asm -o build/15_user_input.o
-ld build/15_user_input.o -o build/15_user_input
-printf '123\n' | ./build/15_user_input
-printf '999999999999\n' | ./build/15_user_input
-printf '12x\n' | ./build/15_user_input
+nasm -f elf64 -g -F dwarf examples/15_bytes_to_numbers_and_back.asm -o build/15_bytes_to_numbers_and_back.o
+ld build/15_bytes_to_numbers_and_back.o -o build/15_bytes_to_numbers_and_back
+printf '123\n' | ./build/15_bytes_to_numbers_and_back
+printf '999999999999\n' | ./build/15_bytes_to_numbers_and_back
+printf '12x\n' | ./build/15_bytes_to_numbers_and_back
 ```
 
 Expected successful output lines are `Enter a number: 136` and `Enter a number: 1000000000012`. The invalid case prints its prompt on stdout, an explanation on stderr, and exits 1.

@@ -7,6 +7,13 @@
 
 ```text
 ASM/
+    bootloader/
+        boot.asm
+        kernel.asm
+        image.py
+        check.py
+        Makefile
+        README.md
     extra_resources/
         RESOURCES.md
         register_chart.png
@@ -53,7 +60,7 @@ ASM/
             12_fizzbuzz_final_boss.asm
             13_debugging_and_reading_the_nudes.asm
             14_x86_32_time_machine.asm
-            15_user_input.asm
+            15_bytes_to_numbers_and_back.asm
         QUICK_REFERENCE.md
         REFERENCES.md
         README.md
@@ -74,3 +81,7 @@ ASM/
 ### NASM tutorial
 
 [Start the NASM field manual](nasm/README.md): 18 structured chapters, commented runnable examples, PNG diagrams, exercises, and a walkthrough of the input program. Follows the GAS lecture progression using NASM syntax.
+
+### Bootloader
+
+[Build the BIOS bootloader](bootloader/README.md): a 512-byte first stage loads a separate 16-bit kernel from a floppy image. Build with `make -C bootloader`; run with `make -C bootloader run` once QEMU is installed.

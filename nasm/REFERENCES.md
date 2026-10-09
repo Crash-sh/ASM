@@ -1,6 +1,6 @@
 # Technical records — manuals and provenance
 
-The course's structure, examples, direct tone, and C comparisons follow the repository's [GAS lectures](../gas_asm_lecture/). Chapters 00–14 adapt the corresponding local examples into NASM, retaining instruction commentary. The [input chapter](exp/15_your_input_program_from_bytes_to_number.md) documents the [standalone input example](examples/15_user_input.asm). New Markdown explanations and diagrams connect those examples into a standalone course.
+The course's structure, examples, direct tone, and C comparisons follow the repository's [GAS lectures](../gas_asm_lecture/). Chapters 00–14 adapt the corresponding local examples into NASM, retaining instruction commentary. The [input chapter](exp/15_bytes_to_numbers_and_back.md) documents the [standalone input example](examples/15_bytes_to_numbers_and_back.asm). New Markdown explanations and diagrams connect those examples into a standalone course.
 
 Datasheets are long threat letters. These are the ones worth keeping open: the assembler's syntax, the CPU's instruction contracts, the ABI, and Linux's interfaces. When a detail matters, find the relevant section. Neither a tutorial nor a confident comment outranks the specification.
 
